@@ -11,7 +11,7 @@
 (el-get 'sync)
 (setq my-packages
       (append
-       '(el-get color-theme color-theme-solarized rinari)
+       '(el-get color-theme color-theme-solarized)
        ))
 (el-get 'sync my-packages)
 (color-theme-solarized-light)
@@ -35,6 +35,15 @@
 
 (setq mac-option-modifier 'none)
 (setq mac-command-modifier 'meta)
+
+;; Interactively Do Things (highly recommended, but not strictly required)
+(require 'ido)
+(ido-mode t)
+
+;; Rinari
+(add-to-list 'load-path "/Users/patrikbjorklund/.emacs.d/plugins/rinari")
+(require 'rinari)
+
 
 ; allows syntax highlighting to work
  (global-font-lock-mode 1)
@@ -68,7 +77,7 @@
 
 
  '(ecb-options-version "2.40"))
-quote ascii-guides)))
+
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -92,10 +101,3 @@ quote ascii-guides)))
      ;   (ruby-electric-mode t)
         ))
 
-;; Interactively Do Things (highly recommended, but not strictly required)
-(require 'ido)
-(ido-mode t)
-
-;; Rinari
-(add-to-list 'load-path "~/path/to/your/elisp/rinari")
-(require 'rinari)
