@@ -1,0 +1,71 @@
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(push "/usr/local/bin" exec-path)
+(add-to-list 'load-path "~/.emacs.d/plugins/ecb-2.40")
+(ecb-source-path (quote ("~/Documents/Kod/rails/")))
+
+(unless (require 'el-get nil t)
+  (url-retrieve
+   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
+   (lambda (s)
+     (end-of-buffer)
+     (eval-print-last-sexp))))
+(el-get 'sync)
+(setq my-packages
+      (append
+       '(el-get color-theme color-theme-solarized)
+       ))
+(el-get 'sync my-packages)
+(color-theme-solarized-light)
+
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil)
+(setq inhibit-startup-message t)
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(delete-selection-mode t)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(blink-cursor-mode t)
+(show-paren-mode t)
+(column-number-mode t)
+(set-fringe-style -1)
+(tooltip-mode -1)
+
+(setq mac-option-modifier 'none)
+(setq mac-command-modifier 'meta)
+
+; allows syntax highlighting to work
+ (global-font-lock-mode 1)
+
+;; Load CEDET.
+;; This is required by ECB which will be loaded later.
+;; See cedet/common/cedet.info for configuration details.
+(load-file "~/.emacs.d/plugins/cedet/common/cedet.el")
+
+;; Enable EDE (Project Management) features
+(global-ede-mode 1)
+
+;; * This enables the database and idle reparse engines
+(semantic-load-enable-minimum-features)
+
+;; * This enables some tools useful for coding, such as summary mode
+;;   imenu support, and the semantic navigator
+(semantic-load-enable-code-helpers)
+
+
+(load-file "~/.emacs.d/plugins/ecb-2.40/ecb.el")
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(ecb-options-version "2.40"))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )

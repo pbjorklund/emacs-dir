@@ -1,0 +1,1 @@
+(:el-get "installed" :color-theme "installed" :color-theme-ir-black "removed" :color-theme-solarized "installed" :ecb "removed" :cedet "removed" :rinari "installed")
