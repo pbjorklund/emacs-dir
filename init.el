@@ -1,6 +1,7 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (push "/usr/local/bin" exec-path)
 (add-to-list 'load-path "~/.emacs.d/plugins/ecb-2.40")
+(add-to-list 'load-path "~/.emacs.d/plugins")
 
 (unless (require 'el-get nil t)
   (url-retrieve
@@ -11,10 +12,11 @@
 (el-get 'sync)
 (setq my-packages
       (append
-       '(el-get color-theme color-theme-solarized)
+       '(el-get color-theme color-theme-railscasts auto-complete)
        ))
 (el-get 'sync my-packages)
-(color-theme-solarized-light)
+(load-file "~/.emacs.d/el-get/color-theme-railscasts/color-theme-railscasts.el")
+(color-theme-railscasts)
 
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -44,6 +46,16 @@
 (add-to-list 'load-path "/Users/patrikbjorklund/.emacs.d/plugins/rinari")
 (require 'rinari)
 
+;; Ruby-electric
+(require 'ruby-electric)
+(add-hook 'ruby-mode-hook 'ruby-electric-mode)
+
+;; MuMaMo-Mode for rhtml files
+(add-to-list 'load-path "~/.emacs.d/plugins/nxhtml/util/")
+(require 'mumamo-fun)
+(setq mumamo-chunk-coloring 5)
+(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-html-mumamo))
+(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-html-mumamo))
 
 ; allows syntax highlighting to work
  (global-font-lock-mode 1)
@@ -72,10 +84,7 @@
   ;; If there is more than one, they won't work right.
  '(ecb-source-path (quote ("~/Documents/Kod/rails/" "~/.emacs.d/")))
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
-
  '(ecb-tip-of-the-day nil)
-
-
  '(ecb-options-version "2.40"))
 
 (custom-set-faces

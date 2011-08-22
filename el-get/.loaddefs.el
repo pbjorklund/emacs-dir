@@ -403,11 +403,13 @@ and off otherwise.
 
 ;;;***
 
-;;;### (autoloads nil nil ("color-theme-solarized/solarized-dark-theme.el"
+;;;### (autoloads nil nil ("auto-complete/auto-complete-config.el"
+;;;;;;  "auto-complete/auto-complete.el" "auto-complete/fuzzy.el"
+;;;;;;  "auto-complete/popup.el" "color-theme-solarized/solarized-dark-theme.el"
 ;;;;;;  "color-theme-solarized/solarized-definitions.el" "color-theme-solarized/solarized-light-theme.el"
 ;;;;;;  "color-theme/color-theme-autoloads.el" "el-get/el-get-install.el"
 ;;;;;;  "el-get/el-get.el" "rinari/util/jump/findr.el" "rinari/util/ruby-compilation-rspec.el")
-;;;;;;  (20050 37735 907636))
+;;;;;;  (20050 52667 545760))
 
 ;;;***
 
