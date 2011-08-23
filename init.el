@@ -31,8 +31,6 @@
 (blink-cursor-mode t)
 (show-paren-mode t)
 (column-number-mode t)
-(set-fringe-style -1)
-(tooltip-mode -1)
 
 ;; Make CMD into M (for mac)
 (setq mac-option-modifier 'none)
@@ -47,8 +45,8 @@
 (require 'rinari)
 
 ;; Ruby-electric
-(require 'ruby-electric)
-(add-hook 'ruby-mode-hook 'ruby-electric-mode)
+;;(require 'ruby-electric)
+;;(add-hook 'ruby-mode-hook 'ruby-electric-mode)
 
 ;; MuMaMo-Mode for rhtml files
 (add-to-list 'load-path "~/.emacs.d/plugins/nxhtml/util/")
@@ -81,10 +79,11 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(ecb-source-path (quote ("~/Documents/Kod/rails/" "~/.emacs.d/")))
+ '(ecb-layout-window-sizes (quote (("left3" (0.15648854961832062 . 0.29411764705882354) (0.15648854961832062 . 0.3382352941176471) (0.15648854961832062 . 0.35294117647058826)))))
+ '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
- '(ecb-tip-of-the-day nil)
- '(ecb-options-version "2.40"))
+ '(ecb-source-path (quote ("~/Documents/Kod/rails/" "~/.emacs.d/")))
+ '(ecb-tip-of-the-day nil))
 
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
@@ -122,9 +121,11 @@
 
 ;; Rvm
 (require 'rvm)
-
 (rvm-use-default) ;; use rvm’s default ruby for the current Emacs session
 
 ;; Rails-snippets
+(require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippets-rails/rails-snippets")
+
+(ecb-activate)
