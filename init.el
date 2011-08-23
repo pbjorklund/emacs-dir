@@ -15,8 +15,8 @@
        '(el-get color-theme color-theme-railscasts auto-complete)
        ))
 (el-get 'sync my-packages)
-(load-file "~/.emacs.d/el-get/color-theme-railscasts/color-theme-railscasts.el")
-(color-theme-railscasts)
+;;(load-file "~/.emacs.d/el-get/color-theme-railscasts/color-theme-railscasts.el")
+(color-theme-irblack)
 
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -110,3 +110,17 @@
      ;   (ruby-electric-mode t)
         ))
 
+;;Rsense
+(setq rsense-home "/opt/rsense-0.3")
+(add-to-list 'load-path (concat rsense-home "/etc"))
+(require 'rsense)
+
+;; Rsense + Autocomplete
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (add-to-list 'ac-sources 'ac-source-rsense-method)
+            (add-to-list 'ac-sources 'ac-source-rsense-constant)))
+
+(require 'rvm)
+
+(rvm-use-default) ;; use rvm’s default ruby for the current Emacs session
