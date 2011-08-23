@@ -1,7 +1,12 @@
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (push "/usr/local/bin" exec-path)
+
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (add-to-list 'load-path "~/.emacs.d/plugins/ecb-2.40")
+(add-to-list 'load-path "/Users/patrikbjorklund/.emacs.d/plugins/rinari")
 (add-to-list 'load-path "~/.emacs.d/plugins")
+
+(require 'maxframe)
+(add-hook 'window-setup-hook 'maximize-frame t)
 
 (unless (require 'el-get nil t)
   (url-retrieve
@@ -41,19 +46,7 @@
 (ido-mode t)
 
 ;; Rinari
-(add-to-list 'load-path "/Users/patrikbjorklund/.emacs.d/plugins/rinari")
 (require 'rinari)
-
-;; Ruby-electric
-;;(require 'ruby-electric)
-;;(add-hook 'ruby-mode-hook 'ruby-electric-mode)
-
-;; MuMaMo-Mode for rhtml files
-(add-to-list 'load-path "~/.emacs.d/plugins/nxhtml/util/")
-(require 'mumamo-fun)
-(setq mumamo-chunk-coloring 5)
-(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-html-mumamo))
-(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-html-mumamo))
 
 ; allows syntax highlighting to work
  (global-font-lock-mode 1)
@@ -79,7 +72,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(ecb-layout-window-sizes (quote (("left3" (0.15648854961832062 . 0.29411764705882354) (0.15648854961832062 . 0.3382352941176471) (0.15648854961832062 . 0.35294117647058826)))))
+
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
  '(ecb-source-path (quote ("~/Documents/Kod/rails/" "~/.emacs.d/")))
@@ -92,21 +85,8 @@
   ;; If there is more than one, they won't work right.
  )
 
-(add-hook 'ruby-mode-hook
-      (lambda()
-        (add-hook 'local-write-file-hooks
-                  '(lambda()
-                     (save-excursion
-                       (untabify (point-min) (point-max))
-                       (delete-trailing-whitespace)
-                       )))
-        (set (make-local-variable 'indent-tabs-mode) 'nil)
-        (set (make-local-variable 'tab-width) 2)
-        (imenu-add-to-menubar "IMENU")
-        (define-key ruby-mode-map "\C-m" 'newline-and-indent) ;Not sure if this line is 100% right!
-     ;   (require 'ruby-electric)
-     ;   (ruby-electric-mode t)
-        ))
+;; Map enter key to newline-and-indent
+(global-set-key "\C-m" 'newline-and-indent)
 
 ;;Rsense
 (setq rsense-home "/opt/rsense-0.3")
@@ -123,9 +103,26 @@
 (require 'rvm)
 (rvm-use-default) ;; use rvm’s default ruby for the current Emacs session
 
+;; Nxhtml
+(load "~/.emacs.d/plugins/nxhtml/autostart.el")
+(require 'mumamo-fun)
+(setq
+ nxhtml-global-minor-mode t
+ mumamo-chunk-coloring 'submode-colored
+ nxhtml-skip-welcome t
+ indent-region-mode t
+ rng-nxml-auto-validate-flag nil
+ nxml-degraded t)
+
 ;; Rails-snippets
 (require 'yasnippet)
 (yas/initialize)
+(yas/define-snippets 'nxhtml-mode nil 'html-mode)
 (yas/load-directory "~/.emacs.d/plugins/yasnippets-rails/rails-snippets")
 
 (ecb-activate)
+
+(add-to-list 'load-path "~/.emacs.d")    ; This may not be appeared if you have already added.
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/el-get/auto-complete/dict")
+(require 'auto-complete-config)
+(ac-config-default)
