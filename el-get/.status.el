@@ -1,1 +1,1 @@
-(:el-get "installed" :color-theme "installed" :color-theme-ir-black "removed" :color-theme-solarized "installed" :ecb "removed" :cedet "removed" :rinari "installed" :ruby-electric "required" :color-theme-railscasts "installed" :auto-complete "installed")
+(:el-get "installed" :color-theme "installed" :color-theme-ir-black "removed" :color-theme-solarized "installed" :ecb "removed" :cedet "removed" :rinari "installed" :ruby-electric "required" :color-theme-railscasts "installed" :auto-complete "installed" :yasnippet "installed")

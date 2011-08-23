@@ -12,20 +12,19 @@
 (el-get 'sync)
 (setq my-packages
       (append
-       '(el-get color-theme color-theme-railscasts auto-complete)
+       '(el-get color-theme color-theme-railscasts auto-complete yasnippet)
        ))
 (el-get 'sync my-packages)
-;;(load-file "~/.emacs.d/el-get/color-theme-railscasts/color-theme-railscasts.el")
+;; Set up color-theme-theme
 (color-theme-irblack)
 
+;; Emacs behavior
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 (setq inhibit-startup-message t)
-
 (fset 'yes-or-no-p 'y-or-n-p)
-
 (delete-selection-mode t)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -35,6 +34,7 @@
 (set-fringe-style -1)
 (tooltip-mode -1)
 
+;; Make CMD into M (for mac)
 (setq mac-option-modifier 'none)
 (setq mac-command-modifier 'meta)
 
@@ -74,7 +74,6 @@
 ;; * This enables some tools useful for coding, such as summary mode
 ;;   imenu support, and the semantic navigator
 (semantic-load-enable-code-helpers)
-
 
 (load-file "~/.emacs.d/plugins/ecb-2.40/ecb.el")
 (custom-set-variables
@@ -121,6 +120,11 @@
             (add-to-list 'ac-sources 'ac-source-rsense-method)
             (add-to-list 'ac-sources 'ac-source-rsense-constant)))
 
+;; Rvm
 (require 'rvm)
 
 (rvm-use-default) ;; use rvm’s default ruby for the current Emacs session
+
+;; Rails-snippets
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/plugins/yasnippets-rails/rails-snippets")
