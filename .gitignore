@@ -6,6 +6,7 @@
 *.elc
 CVS
 .svn
+.org-id-locations
 *~
 .cvsignore
 .*.lock
