@@ -156,3 +156,14 @@
        '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "PROJECT(p)" "DONE(d)")))
 (setq org-agenda-include-diary t)         
 (setq org-agenda-include-all-todo t)
+
+(setf org-todo-keyword-faces '(("TODO" . (:foreground "moccasin" :bold t :weight bold))
+			       ("STARTED" . (:foreground "cyan" :bold t :weight bold))
+			       ("WAITING" . (:foreground "white" :bold t :weight bold))
+             ("PROJECT" . (:foreground "indian red" :bold t :weight bold))
+			       ("DONE" . (:foreground "green" :bold t :weight bold))))
+
+(global-set-key [f4] 'ecb-goto-window-directories)
+(global-set-key [f5] 'ecb-goto-window-sources)
+(global-set-key [f6] 'ecb-goto-window-methods)
+(global-set-key [f7] 'ecb-goto-window-edit1)
