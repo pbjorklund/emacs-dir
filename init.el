@@ -72,11 +72,11 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
-
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
  '(ecb-source-path (quote ("~/Documents/Kod/rails/" "~/.emacs.d/")))
- '(ecb-tip-of-the-day nil))
+ '(ecb-tip-of-the-day nil)
+ '(org-agenda-files (quote ("~/org/todo.org" "~/.emacs.d/init.el"))))
 
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
@@ -120,9 +120,39 @@
 (yas/define-snippets 'nxhtml-mode nil 'html-mode)
 (yas/load-directory "~/.emacs.d/plugins/yasnippets-rails/rails-snippets")
 
-(ecb-activate)
-
 (add-to-list 'load-path "~/.emacs.d")    ; This may not be appeared if you have already added.
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/el-get/auto-complete/dict")
 (require 'auto-complete-config)
 (ac-config-default)
+
+;; Org mode
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+(defun todo ()
+   (interactive)
+   (find-file "~/org/todo.org")
+ )
+
+(setq org-remember-templates
+          '(("Tasks" ?t "* TODO %?\n  %i\n  %a" "~/org/todo.org")
+            ("Appointments" ?a "* Appointment: %?\n%^T\n%i\n  %a" "~/org/todo.org")))
+(setq remember-annotation-functions '(org-remember-annotation))
+(setq remember-handler-functions '(org-remember-handler))
+(eval-after-load 'remember
+  '(add-hook 'remember-mode-hook 'org-remember-apply-template))
+(global-set-key (kbd "C-c r") 'remember)
+
+(setq org-directory "~/org")
+(setq org-mobile-directory "~/Dropbox/MobileOrg")
+(setq org-agenda-files (quote ("~/org/todo.org")))
+(setq org-mobile-inbox-for-pull "~/org/index.org")
+
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(global-set-key (kbd "C-c a") 'org-agenda)
+(setq org-todo-keywords
+       '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "PROJECT(p)" "DONE(d)")))
+(setq org-agenda-include-diary t)         
+(setq org-agenda-include-all-todo t)
