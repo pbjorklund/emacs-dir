@@ -1,0 +1,32 @@
+
+* 2011-08-25
+** Downloading file 20:38:08 GMT
+   file [[file:/Users/patrikbjorklund/.emacs.d/plugins/nxhtml/nxhtml-base.el][/Users/patrikbjorklund/.emacs.d/plugins/nxhtml/nxhtml-base.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20101228200718-9wwuyehbvtygvstb/nxhtmlbase.el-20100113172514-fyszxn1ypx4ml96h-1/nxhtml-base.el
+   Done.
+
+** Downloading file 20:38:10 GMT
+   file [[file:/Users/patrikbjorklund/.emacs.d/plugins/nxhtml/nxhtml-loaddefs.el][/Users/patrikbjorklund/.emacs.d/plugins/nxhtml/nxhtml-loaddefs.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20110504235300-ojqwz9z1bxm5dona/nxhtmlloaddefs.el-20080927190633-bvdatx6qc6m3ze5h-1/nxhtml-loaddefs.el
+   Done.
+
+** Downloading file 20:38:24 GMT
+   file [[file:/Users/patrikbjorklund/.emacs.d/plugins/nxhtml/nxhtml-web-vcs.el][/Users/patrikbjorklund/.emacs.d/plugins/nxhtml/nxhtml-web-vcs.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20110504235300-ojqwz9z1bxm5dona/nxhtmlwebvcs.el-20100113172514-fyszxn1ypx4ml96h-2/nxhtml-web-vcs.el
+   Done.
+
+** Downloading file 20:38:29 GMT
+   file [[file:/Users/patrikbjorklund/.emacs.d/plugins/nxhtml/README.txt][/Users/patrikbjorklund/.emacs.d/plugins/nxhtml/README.txt]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20110316010700-b7mttztbuoch7z8l/readme.txt-20091201225055-ijilnjhor5wc5s03-1/README.txt
+   Done.
+
+** Downloading file 20:38:31 GMT
+   file [[file:/Users/patrikbjorklund/.emacs.d/plugins/nxhtml/web-autoload.el][/Users/patrikbjorklund/.emacs.d/plugins/nxhtml/web-autoload.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20101219013302-uc6gbtmhecqw8ve2/webautoload.el-20091227180846-favloh4bvxp3i0mh-3/web-autoload.el
+   Done.
+
+** Downloading file 20:38:33 GMT
+   file [[file:/Users/patrikbjorklund/.emacs.d/plugins/nxhtml/web-vcs.el][/Users/patrikbjorklund/.emacs.d/plugins/nxhtml/web-vcs.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20110618233059-jb2q3txw21aleow6/webvcs.el-20091227180846-favloh4bvxp3i0mh-4/web-vcs.el
+   Done.
+
