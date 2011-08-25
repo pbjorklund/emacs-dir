@@ -152,18 +152,69 @@
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c t") 'todo)
 (setq org-todo-keywords
        '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "PROJECT(p)" "DONE(d)")))
-(setq org-agenda-include-diary t)         
-(setq org-agenda-include-all-todo t)
+(setq org-agenda-include-diary t)
 
 (setf org-todo-keyword-faces '(("TODO" . (:foreground "moccasin" :bold t :weight bold))
-			       ("STARTED" . (:foreground "cyan" :bold t :weight bold))
-			       ("WAITING" . (:foreground "white" :bold t :weight bold))
-             ("PROJECT" . (:foreground "indian red" :bold t :weight bold))
-			       ("DONE" . (:foreground "green" :bold t :weight bold))))
+			       ("STARTED"                . (:foreground "cyan" :bold t :weight bold))
+			       ("WAITING"                . (:foreground "white" :bold t :weight bold))
+             ("PROJECT"                . (:foreground "indian red" :bold t :weight bold))
+			       ("DONE"                   . (:foreground "green" :bold t :weight bold))))
 
+;; Keybindings
 (global-set-key [f4] 'ecb-goto-window-directories)
 (global-set-key [f5] 'ecb-goto-window-sources)
 (global-set-key [f6] 'ecb-goto-window-methods)
 (global-set-key [f7] 'ecb-goto-window-edit1)
+
+;; Ido-goto-symbol
+ (defun ido-goto-symbol (&optional symbol-list)
+      "Refresh imenu and jump to a place in the buffer using Ido."
+      (interactive)
+      (unless (featurep 'imenu)
+        (require 'imenu nil t))
+      (cond
+       ((not symbol-list)
+        (let ((ido-mode ido-mode)
+              (ido-enable-flex-matching
+               (if (boundp 'ido-enable-flex-matching)
+                   ido-enable-flex-matching t))
+              name-and-pos symbol-names position)
+          (unless ido-mode
+            (ido-mode 1)
+            (setq ido-enable-flex-matching t))
+          (while (progn
+                   (imenu--cleanup)
+                   (setq imenu--index-alist nil)
+                   (ido-goto-symbol (imenu--make-index-alist))
+                   (setq selected-symbol
+                         (ido-completing-read "Symbol? " symbol-names))
+                   (string= (car imenu--rescan-item) selected-symbol)))
+          (unless (and (boundp 'mark-active) mark-active)
+            (push-mark nil t nil))
+          (setq position (cdr (assoc selected-symbol name-and-pos)))
+          (cond
+           ((overlayp position)
+            (goto-char (overlay-start position)))
+           (t
+            (goto-char position)))))
+       ((listp symbol-list)
+        (dolist (symbol symbol-list)
+          (let (name position)
+            (cond
+             ((and (listp symbol) (imenu--subalist-p symbol))
+              (ido-goto-symbol symbol))
+             ((listp symbol)
+              (setq name (car symbol))
+              (setq position (cdr symbol)))
+             ((stringp symbol)
+              (setq name symbol)
+              (setq position
+                    (get-text-property 1 'org-imenu-marker symbol))))
+            (unless (or (null position) (null name)
+                        (string= (car imenu--rescan-item) name))
+              (add-to-list 'symbol-names name)
+              (add-to-list 'name-and-pos (cons name position))))))))
+    (global-set-key (kbd "M-i") 'ido-goto-symbol) ; or any key you see fit
