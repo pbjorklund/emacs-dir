@@ -16,11 +16,15 @@
 (setq mac-option-modifier 'none)
 (setq mac-command-modifier 'meta)
 
+;; You know, like Readline.
+(global-set-key (kbd "C-M-h") 'backward-kill-word)
+
 ; allows syntax highlighting to work
 (global-font-lock-mode 1)
 
 ;; Map enter key to newline-and-indent
 (global-set-key "\C-m" 'newline-and-indent)
+(define-key global-map (kbd "RET") 'newline-and-indent)
 
 (require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
