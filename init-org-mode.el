@@ -1,7 +1,5 @@
 ;; Org mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 
 (defun todo ()
@@ -26,6 +24,8 @@
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c t") 'todo)
+(define-key global-map "\C-cl" 'org-store-link)
+
 (setq org-todo-keywords
        '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "PROJECT(p)" "DONE(d)")))
 (setq org-agenda-include-diary t)

@@ -13,18 +13,12 @@
 (el-get 'sync)
 (setq my-packages
       (append
-       '(el-get color-theme color-theme-railscasts auto-complete yasnippet)
+       '(el-get color-theme color-theme-railscasts)
        ))
 (el-get 'sync my-packages)
 
 ;; Set up color-theme-theme
 (color-theme-irblack)
-
-;; Read files that init other modules
-(require 'init-customizations)
-(require 'init-ido)
-(require 'init-ruby)
-(require 'init-org-mode)
 
 ;; Nxhtml
 (load "~/.emacs.d/plugins/nxhtml/autostart.el")
@@ -41,6 +35,17 @@
 (add-to-list 'auto-mode-alist '("\\.js\\.erb\\'" . eruby-javascript-mumamo))
 (add-to-list 'auto-mode-alist '("\\.js\\.rjs\\'" . eruby-javascript-mumamo))
 
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/el-get/auto-complete/dict")
+;; Auto-complete
 (require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins//ac-dict")
 (ac-config-default)
+
+;; yasnippet
+(add-to-list 'load-path "~/.emacs.d/plugins")
+(require 'yasnippet)
+
+;; Read files that init other modules
+(require 'init-customizations)
+(require 'init-ido)
+(require 'init-ruby)
+(require 'init-org-mode)

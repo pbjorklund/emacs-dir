@@ -403,41 +403,6 @@ and off otherwise.
 
 ;;;***
 
-;;;### (autoloads (yas/minor-mode yas/snippet-dirs) "yasnippet" "yasnippet/yasnippet.el"
-;;;;;;  (20051 33000))
-;;; Generated autoloads from yasnippet/yasnippet.el
-
-(defvar yas/snippet-dirs nil "\
-Directory or list of snippet dirs for each major mode.
-
-The directory where user-created snippets are to be stored. Can
-also be a list of directories. In that case, when used for
-bulk (re)loading of snippets (at startup or via
-`yas/reload-all'), directories appearing earlier in the list
-shadow other dir's snippets. Also, the first directory is taken
-as the default for storing the user's new snippets.")
-
-(custom-autoload 'yas/snippet-dirs "yasnippet" nil)
-
-(autoload 'yas/minor-mode "yasnippet" "\
-Toggle YASnippet mode.
-
-When YASnippet mode is enabled, the `tas/trigger-key' key expands
-snippets of code depending on the mode.
-
-With no argument, this command toggles the mode.
-positive prefix argument turns on the mode.
-Negative prefix argument turns off the mode.
-
-You can customize the key through `yas/trigger-key'.
-
-Key bindings:
-\\{yas/minor-mode-map}
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
 ;;;### (autoloads nil nil ("auto-complete/auto-complete-config.el"
 ;;;;;;  "auto-complete/auto-complete.el" "auto-complete/fuzzy.el"
 ;;;;;;  "auto-complete/popup.el" "color-theme-solarized/solarized-dark-theme.el"
