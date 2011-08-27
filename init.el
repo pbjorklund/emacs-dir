@@ -44,6 +44,8 @@
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/plugins")
 (require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/snippets")
 
 ;; Read files that init other modules
 (require 'init-customizations)
