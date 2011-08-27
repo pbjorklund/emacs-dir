@@ -26,6 +26,9 @@
 (global-set-key "\C-m" 'newline-and-indent)
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
+;; Map zencoding key
+(global-set-key (kbd "C-c C-z") 'zencoding-expand-line)
+
 (require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
 
