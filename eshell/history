@@ -17,3 +17,11 @@ cd ..
 ls
 ack solarized
 exit
+ls
+git submodule add https://github.com/nonsequitur/inf-ruby.git plugins/inf-ruby
+git submodule add https://github.com/nonsequitur/inf-ruby.git plugins/inf-ruby
+exit
+cd plugins/rinari/
+ls
+git submodule init
+git submodule update

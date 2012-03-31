@@ -4,3 +4,9 @@
 [submodule "plugins/emacs-color-theme-solarized"]
 	path = plugins/emacs-color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "plugins/rinari"]
+	path = plugins/rinari
+	url = git://github.com/eschulte/rinari.git
+[submodule "plugins/inf-ruby"]
+	path = plugins/inf-ruby
+	url = https://github.com/nonsequitur/inf-ruby.git
