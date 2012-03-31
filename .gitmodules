@@ -1,0 +1,3 @@
+[submodule "plugins/yasnippet-rails"]
+	path = plugins/yasnippet-rails
+	url = https://github.com/eschulte/yasnippets-rails.git

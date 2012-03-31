@@ -1,6 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/plugins")
-(add-to-list 'load-path "~/.emacs.d/plugins/rinari")
 
 ;; Nxhtml
 (load "~/.emacs.d/plugins/nxhtml/autostart.el")
@@ -17,6 +16,12 @@
 (add-to-list 'auto-mode-alist '("\\.js\\.erb\\'" . eruby-javascript-mumamo))
 (add-to-list 'auto-mode-alist '("\\.js\\.rjs\\'" . eruby-javascript-mumamo))
 
+;; Package.el
+(require 'package)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+(load-theme "solarized-dark")
+
 ;; Auto-complete
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins//ac-dict")
@@ -24,10 +29,11 @@
 (require 'auto-complete-ruby)
 
 ;; yasnippet
-(add-to-list 'load-path "~/.emacs.d/plugins")
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/snippets")
+
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 ;; Read files that init other modules
 (require 'init-customizations)

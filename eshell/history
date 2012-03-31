@@ -1,0 +1,19 @@
+ls
+cd elpa/
+ls
+ls
+rm -rf color-theme-solarized-20120301/
+ls
+ls
+cd elpa/
+ls
+rm -rf solarized-theme-0.3.0/
+ls
+cd archives/
+ls
+cd ..
+ls
+cd ..
+ls
+ack solarized
+exit
