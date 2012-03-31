@@ -1,3 +1,6 @@
 [submodule "plugins/yasnippet-rails"]
 	path = plugins/yasnippet-rails
 	url = https://github.com/eschulte/yasnippets-rails.git
+[submodule "plugins/emacs-color-theme-solarized"]
+	path = plugins/emacs-color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git

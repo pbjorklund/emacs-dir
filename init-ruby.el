@@ -6,8 +6,7 @@
 (require 'yasnippet)
 (yas/initialize)
 (yas/define-snippets 'nxhtml-mode nil 'html-mode)
-(yas/load-directory "~/.emacs.d/plugins/yasnippets-rails/rails-snippets"
+(yas/load-directory "~/.emacs.d/plugins/yasnippet-rails/rails-snippets")
 
 (add-hook 'ruby-mode-hook (lambda () (local-set-key "\r" 'newline-and-indent)))
-
 (provide 'init-ruby)

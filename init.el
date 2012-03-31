@@ -20,8 +20,6 @@
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
-(load-theme "solarized-dark")
-
 ;; Auto-complete
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins//ac-dict")
@@ -40,3 +38,7 @@
 (require 'init-ido)
 (require 'init-ruby)
 (require 'init-org-mode)
+
+;; Solarized
+(add-to-list 'custom-theme-load-path "~/.emacs.d/plugins/emacs-color-theme-solarized")
+(load-theme 'solarized-dark t)
