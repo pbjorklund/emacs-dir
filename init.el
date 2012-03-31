@@ -1,24 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d")
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (add-to-list 'load-path "~/.emacs.d/plugins")
 (add-to-list 'load-path "~/.emacs.d/plugins/rinari")
-
-
-(unless (require 'el-get nil t)
-  (url-retrieve
-   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
-   (lambda (s)
-     (end-of-buffer)
-     (eval-print-last-sexp))))
-(el-get 'sync)
-(setq my-packages
-      (append
-       '(el-get color-theme color-theme-railscasts)
-       ))
-(el-get 'sync my-packages)
-
-;; Set up color-theme-theme
-(color-theme-irblack)
 
 ;; Nxhtml
 (load "~/.emacs.d/plugins/nxhtml/autostart.el")
