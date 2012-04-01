@@ -20,3 +20,6 @@
 (add-hook 'window-setup-hook 'maximize-frame t)
 
 (provide 'init-customizations)
+
+;; Use Emacs terminfo, not system terminfo
+(setq system-uses-terminfo nil)
