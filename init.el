@@ -1,5 +1,10 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/plugins")
+(add-to-list 'load-path "~/.emacs.d/plugins/feature-mode")
+
+;; Cucumber
+(require 'feature-mode)
+(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 
 ;; Nxhtml
 (load "~/.emacs.d/plugins/nxhtml/autostart.el")

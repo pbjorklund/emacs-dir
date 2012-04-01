@@ -10,3 +10,6 @@
 [submodule "plugins/inf-ruby"]
 	path = plugins/inf-ruby
 	url = https://github.com/nonsequitur/inf-ruby.git
+[submodule "plugins/feature-mode"]
+	path = plugins/feature-mode
+	url = https://github.com/michaelklishin/cucumber.el.git
